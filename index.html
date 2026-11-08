@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harmony Studio | Move With Purpose, Life in Harmony</title>
+<meta name="description" content="Harmony Studio merancang dan mengelola studio Pilates & movement yang tenang, ergonomis, dan berkarakter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://unpkg.com/lucide@0.460.0"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { canvas:'#FDFBF7', linen:'#F5F2EB', stoneBorder:'#E5DFD5', charcoal:'#1A1A1A', darkBg:'#121212', mutedSlate:'#66635D', taupe:'#9A9286', warmBronze:'#C2A382' },
+  fontFamily: { serif:['"Cormorant Garamond"','serif'], sans:['"Plus Jakarta Sans"','sans-serif'] }
+}}}
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans antialiased selection:bg-warmBronze/30 selection:text-charcoal overflow-x-hidden">
+<div id="progress"></div>
+
+<!-- HEADER -->
+<header id="header" class="fixed top-0 left-0 right-0 z-40 bg-darkBg/40 backdrop-blur-glass border-b border-white/10 text-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+    <a href="#" class="group flex items-center gap-3">
+      <span class="w-2 h-2 rounded-full bg-warmBronze group-hover:scale-150 transition-transform"></span>
+      <span class="font-serif text-xl sm:text-2xl font-light tracking-widest">Harmony Studio</span>
+    </a>
+    <nav class="hidden md:flex items-center space-x-10 text-xs font-medium uppercase tracking-widest text-white/70">
+      <a href="#portfolio" class="nav-link hover:text-warmBronze transition-colors">Our Studio Project</a>
+      <a href="#founder" class="nav-link hover:text-warmBronze transition-colors">The Founder</a>
+    </nav>
+    <div class="hidden md:block">
+      <a href="#contact" class="text-xs uppercase tracking-widest font-medium border border-warmBronze/50 px-5 py-2.5 rounded-full text-warmBronze hover:bg-warmBronze hover:text-darkBg transition-all duration-300">Call Us</a>
+    </div>
+    <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Buka navigasi"><i data-lucide="menu" class="w-6 h-6 stroke-[1.25]"></i></button>
+  </div>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="mobile-drawer-content" class="absolute top-0 right-0 w-4/5 max-w-sm h-full bg-darkBg text-white p-8 shadow-2xl flex flex-col justify-between translate-x-full transition-transform duration-500 border-l border-white/10">
+    <div class="space-y-8">
+      <div class="flex items-center justify-between border-b border-white/10 pb-6">
+        <span class="font-serif text-xl font-light tracking-widest">HARMONY STUDIO</span>
+        <button id="close-drawer-btn" class="p-1 text-white/70 hover:text-white" aria-label="Tutup"><i data-lucide="x" class="w-6 h-6 stroke-[1.25]"></i></button>
+      </div>
+      <nav class="flex flex-col space-y-6 text-xs uppercase tracking-widest text-white/70 font-medium">
+        <a href="#portfolio" class="mobile-nav-link hover:text-warmBronze">Studio Project</a>
+        <a href="#founder" class="mobile-nav-link hover:text-warmBronze">The Founder</a>
+      </nav>
+    </div>
+    <div class="pt-8 border-t border-white/10 space-y-4 text-center">
+      <p class="text-xs text-taupe font-light">Architecting Mindful Spaces for Pilates & Movement</p>
+      <a href="#contact" class="mobile-nav-link block text-xs uppercase tracking-widest font-medium bg-warmBronze text-darkBg py-3.5 rounded-full">Hubungi Founder</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center justify-center text-center px-5 sm:px-8 lg:px-12 pt-28 pb-16 overflow-hidden bg-darkBg grain">
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=2000&q=90" alt="Interior studio Pilates" class="hero-img w-full h-full object-cover brightness-75">
+    <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/70 to-darkBg/40"></div>
+    <div class="hero-glow absolute inset-0"></div>
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto space-y-8 flex flex-col items-center">
+    <div class="reveal inline-flex items-center gap-3 border border-warmBronze/40 bg-white/5 backdrop-blur-glass px-5 py-2 rounded-full text-[10px] uppercase tracking-[.3em] text-warmBronze">
+      <span class="w-1.5 h-1.5 rounded-full bg-warmBronze animate-pulse"></span> Pilates Studio Design & Management
+    </div>
+    <h1 class="reveal font-serif text-5xl sm:text-6xl lg:text-8xl font-light leading-[1.05] text-white tracking-tight" style="--d:.1s">
+      Architecting Mindful Spaces for <br><span class="shimmer italic font-normal">Pilates & Movement</span>
+    </h1>
+    <p class="reveal text-sm sm:text-base text-white/80 font-light leading-relaxed max-w-2xl" style="--d:.2s">
+      Kami merancang dan mengelola studio Pilates yang tenang, ergonomis, dan berkarakter — dari tata ruang, SOP, hingga manajemen coach — agar setiap gerakan terasa lebih bermakna.
+    </p>
+    <div class="reveal pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto" style="--d:.3s">
+      <a href="#portfolio" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-warmBronze text-darkBg text-xs uppercase tracking-widest font-medium px-8 py-4 rounded-full hover:bg-white hover:shadow-[0_0_40px_rgba(194,163,130,.5)] transition-all duration-500">
+        <span>Look the Project</span><i data-lucide="arrow-down" class="w-4 h-4 stroke-[1.25]"></i>
+      </a>
+      <a href="#founder" class="w-full sm:w-auto inline-flex items-center justify-center text-xs uppercase tracking-widest font-medium px-8 py-4 border border-white/25 text-white rounded-full hover:bg-white/10 hover:border-white/60 transition-all duration-300">The Founder</a>
+    </div>
+    <div class="pt-12 flex flex-col items-center opacity-60 hover:opacity-100 transition-opacity float">
+      <span class="text-[10px] tracking-widest uppercase text-white/70 mb-2">Scroll Down</span>
+      <div class="w-5 h-8 border border-white/30 rounded-full flex justify-center p-1"><div class="w-1 h-2 bg-warmBronze rounded-full animate-bounce"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="bg-charcoal text-white/60 py-5 overflow-hidden border-y border-white/10" aria-hidden="true">
+  <div class="marquee font-serif text-xl sm:text-2xl italic font-light whitespace-nowrap">
+    <script>for(let i=0;i<2;i++)document.write('<span class="flex items-center gap-10 pr-10"><span>Reformer Layout</span><i class="text-warmBronze not-italic">✦</i><span>Prehab & Rehab</span><i class="text-warmBronze not-italic">✦</i><span>Studio SOP</span><i class="text-warmBronze not-italic">✦</i><span>Coach Management</span><i class="text-warmBronze not-italic">✦</i><span>Mindful Interior</span><i class="text-warmBronze not-italic">✦</i></span>')</script>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-20">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="reveal"><p class="font-serif text-5xl text-charcoal font-light">6+</p><p class="text-[11px] uppercase tracking-widest text-mutedSlate mt-2">Studio Project</p></div>
+    <div class="reveal" style="--d:.1s"><p class="font-serif text-5xl text-charcoal font-light">10+<span class="text-warmBronze text-3xl"> thn</span></p><p class="text-[11px] uppercase tracking-widest text-mutedSlate mt-2">Pengalaman Wellness</p></div>
+    <div class="reveal" style="--d:.2s"><p class="font-serif text-5xl text-charcoal font-light">4</p><p class="text-[11px] uppercase tracking-widest text-mutedSlate mt-2">Kota di Indonesia</p></div>
+    <div class="reveal" style="--d:.3s"><p class="font-serif text-5xl text-charcoal font-light">STOTT</p><p class="text-[11px] uppercase tracking-widest text-mutedSlate mt-2">Certified Pilates</p></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-24 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto scroll-mt-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14" id="portfolio-grid"></div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder" class="py-24 bg-linen/60 border-y border-stoneBorder scroll-mt-10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
+      <div class="reveal lg:col-span-5 relative">
+        <div class="frame-line relative isolate">
+          <div class="relative overflow-hidden rounded-3xl aspect-[3/4] bg-stoneBorder shadow-xl group">
+            <img src="https://i.ibb.co.com/Kcwd2N5d/A43-E3-CF2-53-FB-400-A-8074-AF7-C4-F23-B824.jpg" alt="Anastasia May" class="w-full h-full object-cover grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 text-white space-y-1">
+              <p class="font-serif text-2xl font-light">Anastasia May</p>
+              <p class="text-[11px] uppercase tracking-widest text-warmBronze font-medium">Founder & Coach Leader</p>
+            </div>
+          </div>
+        </div>
+        <div class="float hidden sm:block absolute -bottom-6 -right-6 bg-canvas border border-stoneBorder p-6 rounded-2xl shadow-lg max-w-xs">
+          <span class="text-warmBronze font-serif text-3xl font-light">10+ Thn</span>
+          <p class="text-[11px] text-mutedSlate font-light leading-snug">Wellness & Movement Designer</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-8">
+        <div class="reveal space-y-3">
+          <span class="text-[11px] uppercase tracking-widest text-warmBronze font-medium flex items-center gap-3"><span class="w-8 h-px bg-warmBronze"></span>Leadership & Vision</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-light text-charcoal leading-tight">“A Pilates studio is more than just a place to exercise, it is a <span class="italic text-warmBronze">spatial sanctuary</span> for mental clarity.”</h2>
+        </div>
+        <p class="reveal text-sm sm:text-base text-mutedSlate font-light leading-relaxed">Holding full certification from STOTT PILATES, one of the world’s leading Pilates education and certification institutions, and bringing experience in designing wellness sanctuaries across Indonesia, Anastasia May founded Harmony Studio & Harmony Project in 2024.</p>
+        <p class="reveal text-sm text-mutedSlate font-light leading-relaxed">The primary focus is to integrate the principles of movement ergonomics with prehabilitation and rehabilitation to prevent and address injuries. Every Reformer layout, indirect lighting scheme, and material selection is carefully considered to support the intensity of Pilates practice while minimizing visual distractions.</p>
+        <div class="reveal grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-stoneBorder pt-6">
+          <div class="space-y-1"><span class="text-xs uppercase tracking-widest font-medium block">Specialized</span><p class="text-xs text-mutedSlate font-light">Pra-Rehab and Rehab Pilates, Microclimate Flow & Reformer Ergonomics</p></div>
+          <div class="space-y-1"><span class="text-xs uppercase tracking-widest font-medium block">Certification</span><p class="text-xs text-mutedSlate font-light">Selengkapnya cek <a class="underline decoration-warmBronze underline-offset-4 hover:text-warmBronze" href="https://instagram.com/may.adnmr" target="_blank" rel="noopener">instagram.com/may.adnmr</a></p></div>
+        </div>
+        <div class="reveal flex flex-wrap items-center gap-6">
+          <a href="mailto:harmonymovement22@gmail.com" class="inline-flex items-center gap-3 bg-charcoal text-canvas text-xs uppercase tracking-widest font-medium px-6 py-3.5 rounded-full hover:bg-warmBronze hover:text-darkBg hover:-translate-y-0.5 transition-all"><i data-lucide="mail" class="w-4 h-4 stroke-[1.25]"></i><span>Contact</span></a>
+          <div class="flex items-center gap-3">
+            <a href="#" class="p-2.5 border border-stoneBorder rounded-full hover:border-warmBronze hover:text-warmBronze transition-colors" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-4 h-4 stroke-[1.25]"></i></a>
+            <a href="https://instagram.com/may.adnmr" target="_blank" rel="noopener" class="p-2.5 border border-stoneBorder rounded-full hover:border-warmBronze hover:text-warmBronze transition-colors" aria-label="Instagram"><i data-lucide="instagram" class="w-4 h-4 stroke-[1.25]"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-darkBg text-white py-14 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="space-y-2 text-center md:text-left">
+      <span class="font-serif text-2xl font-light tracking-widest">HARMONY STUDIO</span>
+      <p class="text-xs text-taupe font-light">Atelier for Pilates & Movement Architecture</p>
+    </div>
+    <div class="flex items-center gap-8 text-xs uppercase tracking-widest text-white/70">
+      <a href="#portfolio" class="hover:text-warmBronze transition-colors">Project</a>
+      <a href="#founder" class="hover:text-warmBronze transition-colors">Founder</a>
+    </div>
+    <p class="text-xs text-taupe font-light">&copy; 2026 Harmony Studio. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="project-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
+  <div id="modal-box" class="bg-canvas text-charcoal w-full max-w-3xl max-h-[90vh] rounded-3xl overflow-y-auto hide-scrollbar border border-stoneBorder shadow-2xl relative p-6 sm:p-10">
+    <button onclick="closeProjectModal()" class="absolute top-6 right-6 p-2 hover:text-warmBronze hover:rotate-90 transition-all duration-300" aria-label="Tutup"><i data-lucide="x" class="w-6 h-6 stroke-[1.25]"></i></button>
+    <div id="modal-content" class="space-y-6"></div>
+  </div>
+</div>
+
+<script>
+const projectsData = [
+  { title:"Rocket Studio by Harmony Studio", service:"Full Management", filter:"management", category:"Reformer Hall", location:"Sleman, Yogyakarta", year:"2026", area:"xx m²",
+    image:"https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=80",
+    concept:"lorem ipsum dolor", description:"lorem ipsum dolor", materials:"Light Oak Wood, Cream Microcement, Diffused Skylight Panels, Acoustic Felt Ceiling" },
+  { title:"ORO Studio", service:"SOP & Coach Handling", filter:"management", category:"Tropical Sanctuary", location:"Tegal, Jawa Tengah", year:"2026", area:"xx m²",
+    image:"https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80",
+    concept:"lorem ipsum dolor", description:"Studio Pilates pertama di Tegal.", materials:"Terracotta Tiles, Eco-Bamboo Elements, Lime Wash Walls, Natural Rattan Weave" },
+  { title:"Kenwi Studio Boutique", service:"Boutique Studio Design", filter:"design", category:"Boutique Studio", location:"Denpasar, Bali", year:"2025", area:"xx m²",
+    image:"https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80",
+    concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Polished Architectural Concrete, Dark Walnut, Frosted Smoked Glass, Warm LED Strips" },
+  { title:"Gymrat", service:"Coach Supplier", filter:"coaching", category:"Heritage Loft", location:"Yogyakarta", year:"2025", area:"xx m²",
+    image:"https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80",
+    concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Exposed Heritage Red Brick, Black Steel Frame, Birch Plywood, Sound Absorbing Curtains" },
+  { title:"Neofit Gym", service:"Coach Management", filter:"coaching", category:"Fitness & Pilates", location:"Solo, Jawa Tengah", year:"2025", area:"xx m²",
+    image:"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80",
+    concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Rubber Flooring, Matte Black Steel, Warm Oak Panels, Indirect Lighting" },
+  { title:"Harmony Studio", service:"Coming Soon", filter:"design", category:"Monolithic Atelier", location:"Palagan, Yogyakarta", year:"2024", area:"xx m²", featured:true,
+    image:"https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1600&q=80",
+    concept:"lorem ipsum dolor", description:"Atelier Pilates privat monolitik yang dirancang tanpa sudut tajam. Permukaan lantai dan dinding menyambung mulus.", materials:"Continuous Microcement, Curved Glass Partitions, Brushed Bronze Fixtures, Suede Cushions" }
+];
+
+document.getElementById('portfolio-grid').innerHTML = projectsData.map((p,i)=>`
+  <div class="project-card reveal group cursor-pointer space-y-4 ${p.featured?'md:col-span-2':''}" data-category="${p.filter}" onclick="openProjectModal(${i})" tabindex="0" onkeydown="if(event.key==='Enter')openProjectModal(${i})" style="--d:${(i%2)*.1}s">
+    <div class="img-wrap relative overflow-hidden rounded-2xl ${p.featured?'aspect-[16/9] sm:aspect-[21/9]':'aspect-[4/3]'} bg-linen">
+      <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1200ms] ease-out">
+      <div class="absolute top-4 left-4 bg-canvas/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium border border-stoneBorder">${p.service}</div>
+    </div>
+    <div class="flex justify-between items-start pt-1">
+      <div>
+        <h3 class="font-serif ${p.featured?'text-3xl':'text-2xl'} font-light group-hover:text-warmBronze transition-colors">${p.title}</h3>
+        <p class="text-xs text-mutedSlate font-light mt-1">${p.location} (${p.year})</p>
+      </div>
+      <span class="w-9 h-9 rounded-full border border-stoneBorder flex items-center justify-center group-hover:bg-charcoal group-hover:text-canvas group-hover:rotate-45 transition-all duration-500 shrink-0"><i data-lucide="arrow-up-right" class="w-4 h-4 stroke-[1.25]"></i></span>
+    </div>
+  </div>`).join('');
+
+lucide.createIcons();
+
+/* Header, progress & active nav */
+const header = document.getElementById('header'), bar = document.getElementById('progress');
+addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', scrollY > 40);
+  bar.style.width = (scrollY / (document.documentElement.scrollHeight - innerHeight) * 100) + '%';
+}, { passive:true });
+const navLinks = document.querySelectorAll('.nav-link');
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+}), { rootMargin:'-45% 0px -50% 0px' });
+['portfolio','founder'].forEach(id => spy.observe(document.getElementById(id)));
+
+/* Reveal on scroll */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Mobile drawer */
+const drawer = document.getElementById('mobile-drawer'), drawerContent = document.getElementById('mobile-drawer-content');
+const openDrawer = () => { drawer.classList.remove('opacity-0','pointer-events-none'); drawerContent.classList.remove('translate-x-full'); };
+const closeDrawer = () => { drawer.classList.add('opacity-0','pointer-events-none'); drawerContent.classList.add('translate-x-full'); };
+document.getElementById('mobile-menu-btn').addEventListener('click', openDrawer);
+document.getElementById('close-drawer-btn').addEventListener('click', closeDrawer);
+drawer.addEventListener('click', e => { if (e.target === drawer) closeDrawer(); });
+document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeDrawer));
+
+/* Modal */
+const modal = document.getElementById('project-modal'), modalContent = document.getElementById('modal-content');
+function openProjectModal(i) {
+  const d = projectsData[i];
+  modalContent.innerHTML = `
+    <div class="space-y-3 pr-10">
+      <span class="text-[10px] uppercase tracking-widest text-warmBronze font-medium px-3 py-1 rounded-full bg-linen border border-stoneBorder inline-block">${d.category}</span>
+      <h3 class="font-serif text-3xl sm:text-4xl font-light">${d.title}</h3>
+      <p class="text-xs text-taupe font-light">${d.location} — ${d.area} (${d.year})</p>
+    </div>
+    <div class="rounded-2xl overflow-hidden aspect-[16/9] bg-linen"><img src="${d.image}" alt="${d.title}" class="w-full h-full object-cover"></div>
+    <div class="space-y-3 pt-2">
+      <span class="text-xs uppercase tracking-widest text-warmBronze font-medium block">Konsep Utama: ${d.concept}</span>
+      <p class="text-xs sm:text-sm text-mutedSlate font-light leading-relaxed">${d.description}</p>
+    </div>
+    <div class="border-t border-stoneBorder pt-4 text-xs">
+      <span class="text-taupe font-medium uppercase tracking-wider block mb-1">Palet Material & Spesifikasi Spasial</span>
+      <p class="font-light">${d.materials}</p>
+    </div>`;
+  modal.classList.remove('opacity-0','pointer-events-none'); modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  lucide.createIcons();
+}
+function closeProjectModal() {
+  modal.classList.add('opacity-0','pointer-events-none'); modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+modal.addEventListener('click', e => { if (e.target === modal) closeProjectModal(); });
+addEventListener('keydown', e => { if (e.key === 'Escape') { closeProjectModal(); closeDrawer(); } });
+</script>
+</body>
+</html>
