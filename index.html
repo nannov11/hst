@@ -61,7 +61,7 @@ tailwind.config = { theme: { extend: {
 </div>
 
 <!-- HERO -->
-<section class="relative min-h-[100svh] flex items-center justify-center text-center px-5 sm:px-8 lg:px-12 pt-28 pb-14 sm:pb-16 overflow-hidden bg-darkBg grain">
+<section class="relative min-h-[100svh] flex items-center justify-center text-center px-5 sm:px-8 lg:px-12 pt-28 pb-28 sm:pb-32 overflow-hidden bg-darkBg grain">
   <div class="absolute inset-0 z-0">
     <img src="Body.jpg" alt="Interior studio Pilates" class="w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/70 to-darkBg/40"></div>
@@ -84,28 +84,55 @@ tailwind.config = { theme: { extend: {
       </a>
       <a href="#founder" class="w-full sm:w-auto inline-flex items-center justify-center text-xs uppercase tracking-wider sm:tracking-widest font-medium px-8 py-4 border border-white/25 text-white rounded-full hover:bg-white/10 hover:border-white/60 transition-all duration-300">The Founder</a>
     </div>
-    <div class="hidden sm:flex pt-12 flex-col items-center opacity-60 hover:opacity-100 transition-opacity float">
-      <span class="text-[10px] tracking-widest uppercase text-white/70 mb-2">Scroll Down</span>
-      <div class="w-5 h-8 border border-white/30 rounded-full flex justify-center p-1"><div class="w-1 h-2 bg-warmBronze rounded-full animate-bounce"></div></div>
+  </div>
+
+  <!-- MARQUEE (di dalam hero) -->
+  <div class="absolute bottom-0 left-0 right-0 z-10 bg-darkBg/60 backdrop-blur-glass text-white/70 py-4 sm:py-5 overflow-hidden border-t border-white/10" aria-hidden="true">
+    <div class="marquee font-serif text-base sm:text-xl italic font-light whitespace-nowrap">
+      <script>for(let i=0;i<2;i++)document.write('<span class="flex items-center gap-10 pr-10"><span>Reformer Layout</span><i class="text-warmBronze not-italic">✦</i><span>Prehab & Rehab</span><i class="text-warmBronze not-italic">✦</i><span>Studio SOP</span><i class="text-warmBronze not-italic">✦</i><span>Coach Management</span><i class="text-warmBronze not-italic">✦</i><span>Mindful Interior</span><i class="text-warmBronze not-italic">✦</i></span>')</script>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="bg-charcoal text-white/60 py-5 overflow-hidden border-y border-white/10" aria-hidden="true">
-  <div class="marquee font-serif text-base sm:text-xl italic font-light whitespace-nowrap">
-    <script>for(let i=0;i<2;i++)document.write('<span class="flex items-center gap-10 pr-10"><span>Reformer Layout</span><i class="text-warmBronze not-italic">✦</i><span>Prehab & Rehab</span><i class="text-warmBronze not-italic">✦</i><span>Studio SOP</span><i class="text-warmBronze not-italic">✦</i><span>Coach Management</span><i class="text-warmBronze not-italic">✦</i><span>Mindful Interior</span><i class="text-warmBronze not-italic">✦</i></span>')</script>
-  </div>
-</div>
-
-
-
 <!-- PORTFOLIO -->
-<section id="portfolio" class="py-16 sm:py-24 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto scroll-mt-16">
-  <div class="reveal mb-10 sm:mb-14 max-w-2xl space-y-3">
-    
+<section id="portfolio" class="pt-10 sm:pt-14 pb-16 sm:pb-24 px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto scroll-mt-16">
+  <div class="reveal mb-6 sm:mb-8 text-center">
+    <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-charcoal">Our Projects</h2>
   </div>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden" id="portfolio-grid"></div>
+</section>
+
+<!-- VIDEO & MAIN STUDIO PROJECT -->
+<section id="featured" class="px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto pb-16 sm:pb-24">
+  <p class="reveal font-sans text-center text-xs sm:text-sm uppercase tracking-[.3em] text-black font-medium mb-6 sm:mb-8">Founder Story</p>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+
+    <!-- Kotak video YouTube -->
+    <div class="reveal relative aspect-video rounded-2xl overflow-hidden bg-darkBg shadow-[0_30px_60px_-30px_rgba(26,26,26,.5)]" id="yt-box" style="--d:.05s">
+      <button type="button" id="yt-play" aria-label="Putar video" class="group absolute inset-0 w-full h-full">
+        <img id="yt-thumb" alt="Thumbnail video Harmony Studio" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1400ms] ease-out">
+        <span class="absolute inset-0 bg-gradient-to-t from-darkBg/80 via-darkBg/20 to-darkBg/30"></span>
+        <span class="absolute top-5 left-5 sm:top-6 sm:left-6 bg-canvas/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium text-charcoal">Video</span>
+        <span class="absolute inset-0 flex items-center justify-center">
+          <span class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-warmBronze text-darkBg flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-500 shadow-[0_0_40px_rgba(194,163,130,.5)]"><i data-lucide="play" class="w-7 h-7 fill-current"></i></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Kotak Main Studio Project -->
+    <article id="main-project" class="reveal group relative aspect-video rounded-2xl overflow-hidden bg-darkBg cursor-pointer text-white flex flex-col justify-end shadow-[0_30px_60px_-30px_rgba(26,26,26,.5)]" tabindex="0" style="--d:.15s">
+      <img id="main-img" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1400ms] ease-out">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0e1020]/95 via-[#0e1020]/55 to-[#0e1020]/20 transition-all duration-700 group-hover:via-[#0e1020]/45"></div>
+      <span class="absolute top-5 left-5 sm:top-6 sm:left-6 bg-canvas/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium text-charcoal">Main Studio Project</span>
+      <div class="relative z-10 p-6 sm:p-8 space-y-2">
+        <span class="block text-[11px] uppercase tracking-[.3em] text-white/70 font-light" id="main-service"></span>
+        <h3 class="font-serif text-2xl sm:text-3xl leading-tight font-medium" id="main-title"></h3>
+        <p class="text-xs text-white/60 font-light" id="main-loc"></p>
+        <span class="inline-flex items-center gap-2 pt-2 text-xs uppercase tracking-[.25em] text-warmBronze font-medium">Selengkapnya <i data-lucide="arrow-right" class="w-4 h-4 stroke-[1.5] group-hover:translate-x-2 transition-transform duration-500"></i></span>
+      </div>
+    </article>
+
+  </div>
 </section>
 
 <!-- FOUNDER -->
@@ -176,24 +203,29 @@ tailwind.config = { theme: { extend: {
 </div>
 
 <script>
+/* GALERI POP-UP (kolom "gallery" di tiap project):
+   - minimal 2 item, isi dengan foto yang BERBEDA dari sampul (image) kalau mau.
+   - foto  -> "nama-file.jpg"
+   - video -> { yt:"ID_VIDEO_YOUTUBE" }   (contoh youtu.be/abc123XYZ99 -> { yt:"abc123XYZ99" })
+   Saat ini item ke-2 masih sama dengan sampul sebagai placeholder: ganti dengan foto/video aslinya. */
 const projectsData = [
   { title:"Rocket Studio by Harmony Studio", service:"Full Management", filter:"management", category:"Reformer Hall", location:"Sleman, Yogyakarta", year:"2026", area:"xx m²",
-    image:"Rocket 2.jpeg?auto=format&fit=crop&w=1200&q=80", images:["Rocket 2.jpeg?auto=format&fit=crop&w=1200&q=80"],
+    image:"Rocket 2.jpeg?auto=format&fit=crop&w=1200&q=80", gallery:["Rocket 2.jpeg?auto=format&fit=crop&w=1200&q=80", "Rocket 2.jpeg?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"lorem ipsum dolor", materials:"Light Oak Wood, Cream Microcement, Diffused Skylight Panels, Acoustic Felt Ceiling" },
   { title:"ORO Studio", service:"SOP & Coach Handling", filter:"management", category:"Tropical Sanctuary", location:"Tegal, Jawa Tengah", year:"2026", area:"xx m²",
-    image:"https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80", images:["https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80"],
+    image:"https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80", gallery:["https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80", "https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"Studio Pilates pertama di Tegal.", materials:"Terracotta Tiles, Eco-Bamboo Elements, Lime Wash Walls, Natural Rattan Weave" },
   { title:"Kenwi Studio Boutique", service:"Boutique Studio Design", filter:"design", category:"Boutique Studio", location:"Denpasar, Bali", year:"2025", area:"xx m²",
-    image:"kenwi.jpg?auto=format&fit=crop&w=1200&q=80", images:["kenwi.jpg?auto=format&fit=crop&w=1200&q=80"],
+    image:"kenwi.jpg?auto=format&fit=crop&w=1200&q=80", gallery:["kenwi.jpg?auto=format&fit=crop&w=1200&q=80", "kenwi.jpg?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Polished Architectural Concrete, Dark Walnut, Frosted Smoked Glass, Warm LED Strips" },
   { title:"Gymrat", service:"Coach Supplier", filter:"coaching", category:"Heritage Loft", location:"Yogyakarta", year:"2025", area:"xx m²",
-    image:"Gymrat.jpg?auto=format&fit=crop&w=1200&q=80", images:["Gymrat.jpg?auto=format&fit=crop&w=1200&q=80"],
+    image:"Gymrat.jpg?auto=format&fit=crop&w=1200&q=80", gallery:["Gymrat.jpg?auto=format&fit=crop&w=1200&q=80", "Gymrat.jpg?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Exposed Heritage Red Brick, Black Steel Frame, Birch Plywood, Sound Absorbing Curtains" },
   { title:"Neofit Gym", service:"Coach Management", filter:"coaching", category:"Fitness & Pilates", location:"Solo, Jawa Tengah", year:"2025", area:"xx m²",
-    image:"Neofit.jpg?auto=format&fit=crop&w=1200&q=80", images:["Neofit.jpg?auto=format&fit=crop&w=1200&q=80"],
+    image:"Neofit.jpg?auto=format&fit=crop&w=1200&q=80", gallery:["Neofit.jpg?auto=format&fit=crop&w=1200&q=80", "Neofit.jpg?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Rubber Flooring, Matte Black Steel, Warm Oak Panels, Indirect Lighting" },
   { title:"The Junction Kudus by Harmony", service:"Coming Soon", filter:"design", category:"Monolithic Atelier", location:"Kudus, Jawa Tengah", year:"2026", area:"xx m²", featured:true,
-    image:"TJC Kudus.jpg?auto=format&fit=crop&w=1600&q=80", images:["TJC Kudus.jpg?auto=format&fit=crop&w=1600&q=80"],
+    image:"TJC Kudus.jpg?auto=format&fit=crop&w=1600&q=80", gallery:["TJC Kudus.jpg?auto=format&fit=crop&w=1600&q=80", "TJC Kudus.jpg?auto=format&fit=crop&w=1600&q=80"],
     concept:"lorem ipsum dolor", description:"Atelier Pilates privat monolitik yang dirancang tanpa sudut tajam. Permukaan lantai dan dinding menyambung mulus.", materials:"Continuous Microcement, Curved Glass Partitions, Brushed Bronze Fixtures, Suede Cushions" }
 ];
 
@@ -201,7 +233,7 @@ const filterIcons = { management:'briefcase', design:'pencil-ruler', coaching:'d
 document.getElementById('portfolio-grid').innerHTML = projectsData.map((p,i)=>`
   <article class="project-card project-panel reveal group relative cursor-pointer overflow-hidden bg-darkBg text-white min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] flex flex-col justify-end" data-category="${p.filter}" onclick="openProjectModal(${i})" tabindex="0" onkeydown="if(event.key==='Enter')openProjectModal(${i})" style="--d:${(i%3)*.1}s">
     <img src="${p.image}" alt="${p.title}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1400ms] ease-out">
-    <div class="panel-overlay absolute inset-0"></div>
+    <div class="panel-overlay absolute inset-0 bg-gradient-to-t from-[#0e1020]/95 via-[#0e1020]/65 to-[#0e1020]/35 group-hover:via-[#0e1020]/50 group-hover:to-[#0e1020]/15 transition-all duration-700"></div>
     <div class="absolute top-8 left-8 sm:top-10 sm:left-10 text-warmBronze"><i data-lucide="${filterIcons[p.filter]||'layers'}" class="w-10 h-10 stroke-[1.25]"></i></div>
     <div class="relative z-10 p-8 sm:p-10 space-y-3">
       <span class="block text-sm tracking-[.2em] font-medium text-warmBronze">${String(i+1).padStart(2,'0')}</span>
@@ -241,11 +273,20 @@ document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('c
 
 /* Modal */
 let slideIdx = 0, slideCount = 1;
+const ytPoster = id => `<button type="button" class="group absolute inset-0 w-full h-full" onclick="playYT(this,'${id}')" aria-label="Putar video"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" class="w-full h-full object-cover" draggable="false" onerror="this.style.display='none'"><span class="absolute inset-0 bg-black/25"></span><span class="absolute inset-0 flex items-center justify-center"><span class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-warmBronze text-darkBg flex items-center justify-center group-hover:scale-110 group-hover:bg-white transition-all duration-300"><i data-lucide="play" class="w-6 h-6 fill-current"></i></span></span></button>`;
+function playYT(btn, id) {
+  btn.parentElement.innerHTML = `<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" title="Video project" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+}
 function slideTo(n) {
   slideIdx = (n + slideCount) % slideCount;
   const track = document.getElementById('slider-track'); if (!track) return;
   track.style.transform = `translateX(-${slideIdx*100}%)`;
-  document.querySelectorAll('#slider-dots button').forEach((b,k)=>{ b.style.width = k===slideIdx ? '24px' : '8px'; b.style.background = k===slideIdx ? '#C2A382' : 'rgba(255,255,255,.6)'; });
+  // hentikan video yang sedang diputar saat pindah slide
+  track.querySelectorAll('[data-yt]').forEach(el => { if (el.querySelector('iframe')) { el.innerHTML = ytPoster(el.dataset.yt); lucide.createIcons(); } });
+  document.querySelectorAll('#thumbs button').forEach((b,k) => {
+    const on = k === slideIdx;
+    b.classList.toggle('ring-2', on); b.classList.toggle('ring-warmBronze', on); b.classList.toggle('opacity-60', !on);
+  });
   const c = document.getElementById('slider-count'); if (c) c.textContent = `${slideIdx+1} / ${slideCount}`;
 }
 function bindSwipe() {
@@ -256,26 +297,34 @@ function bindSwipe() {
 }
 const modal = document.getElementById('project-modal'), modalContent = document.getElementById('modal-content');
 function openProjectModal(i) {
-  const d = projectsData[i];
-  const imgs = (d.images && d.images.length) ? d.images : [d.image];
-  slideIdx = 0; slideCount = imgs.length;
+  const d = (typeof i === 'object') ? i : projectsData[i];
+  const items = (d.gallery && d.gallery.length ? d.gallery : [d.image]).map(g => typeof g === 'string' ? { src:g } : g);
+  slideIdx = 0; slideCount = items.length;
   modalContent.innerHTML = `
     <div class="space-y-3 pr-10">
       <span class="text-[10px] uppercase tracking-widest text-warmBronze font-medium px-3 py-1 rounded-full bg-linen border border-stoneBorder inline-block">${d.category}</span>
       <h3 class="font-serif text-2xl sm:text-3xl font-light">${d.title}</h3>
       <p class="text-xs text-taupe font-light">${d.location} — ${d.area} (${d.year})</p>
     </div>
-    <div class="relative group/slider rounded-2xl overflow-hidden aspect-[16/9] bg-linen select-none" id="slider">
-      <div id="slider-track" class="flex h-full transition-transform duration-500 ease-out">
-        ${imgs.map((src,k)=>`<img src="${src}" alt="${d.title} - foto ${k+1}" class="w-full h-full object-cover shrink-0" draggable="false">`).join('')}
+    <div class="space-y-3">
+      <div class="relative rounded-2xl overflow-hidden aspect-[16/9] bg-darkBg select-none" id="slider">
+        <div id="slider-track" class="flex h-full transition-transform duration-500 ease-out">
+          ${items.map((it,k) => it.yt
+            ? `<div class="relative w-full h-full shrink-0" data-yt="${it.yt}">${ytPoster(it.yt)}</div>`
+            : `<div class="relative w-full h-full shrink-0"><img src="${it.src}" alt="${d.title} - foto ${k+1}" class="w-full h-full object-cover" draggable="false"></div>`).join('')}
+        </div>
+        ${items.length>1?`
+        <button type="button" onclick="slideTo(slideIdx-1)" aria-label="Sebelumnya" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-charcoal flex items-center justify-center shadow transition z-10"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+        <button type="button" onclick="slideTo(slideIdx+1)" aria-label="Berikutnya" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-charcoal flex items-center justify-center shadow transition z-10"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+        <span class="absolute top-3 right-3 bg-black/50 text-white text-[10px] tracking-widest px-3 py-1 rounded-full z-10" id="slider-count"></span>`:''}
       </div>
-      ${imgs.length>1?`
-      <button type="button" onclick="slideTo(slideIdx-1)" aria-label="Sebelumnya" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-charcoal flex items-center justify-center shadow transition"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
-      <button type="button" onclick="slideTo(slideIdx+1)" aria-label="Berikutnya" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-charcoal flex items-center justify-center shadow transition"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
-      <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2" id="slider-dots">
-        ${imgs.map((_,k)=>`<button type="button" onclick="slideTo(${k})" aria-label="Foto ${k+1}" class="h-2 rounded-full transition-all duration-300 bg-white/60"></button>`).join('')}
-      </div>
-      <span class="absolute top-3 right-3 bg-black/50 text-white text-[10px] tracking-widest px-3 py-1 rounded-full" id="slider-count"></span>`:''}
+      ${items.length>1?`
+      <div id="thumbs" class="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3">
+        ${items.map((it,k) => `<button type="button" onclick="slideTo(${k})" aria-label="Lihat ${it.yt?'video':'foto'} ${k+1}" class="relative aspect-[4/3] rounded-xl overflow-hidden bg-darkBg opacity-60 hover:opacity-100 transition">
+          <img src="${it.yt ? `https://i.ytimg.com/vi/${it.yt}/hqdefault.jpg` : it.src}" alt="" class="w-full h-full object-cover" draggable="false" onerror="this.style.display='none'">
+          ${it.yt?'<span class="absolute inset-0 flex items-center justify-center bg-black/30"><i data-lucide="play" class="w-5 h-5 text-white fill-current"></i></span>':''}
+        </button>`).join('')}
+      </div>`:''}
     </div>
     <div class="space-y-3 pt-2">
       <span class="text-xs uppercase tracking-widest text-warmBronze font-medium block">Konsep Utama: ${d.concept}</span>
@@ -291,9 +340,31 @@ function openProjectModal(i) {
   slideTo(0); bindSwipe();
 }
 function closeProjectModal() {
+  modalContent.querySelectorAll('iframe').forEach(f => f.remove());
   modal.classList.add('opacity-0','pointer-events-none'); modal.classList.remove('open');
   document.body.style.overflow = '';
 }
+/* Video YouTube & Main Studio Project */
+const YOUTUBE_ID = 'GANTI_ID_VIDEO'; // contoh: dari https://youtu.be/abc123XYZ99 -> 'abc123XYZ99'
+const mainProject = { title:"Main Studio Project", service:"Flagship Studio", category:"Main Studio", location:"Lokasi studio", year:"2026", area:"xx m²",
+  image:"Body.jpg", gallery:["Body.jpg", "Body.jpg"],
+  concept:"lorem ipsum dolor", description:"lorem ipsum dolor", materials:"lorem ipsum dolor" };
+
+document.getElementById('yt-thumb').src = `https://i.ytimg.com/vi/${YOUTUBE_ID}/hqdefault.jpg`;
+document.getElementById('yt-thumb').addEventListener('error', e => e.target.style.display = 'none');
+document.getElementById('yt-play').addEventListener('click', () => {
+  document.getElementById('yt-box').innerHTML = `<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0" title="Video Harmony Studio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+});
+
+const mainEl = document.getElementById('main-project');
+document.getElementById('main-img').src = mainProject.image;
+document.getElementById('main-img').alt = mainProject.title;
+document.getElementById('main-service').textContent = mainProject.service;
+document.getElementById('main-title').textContent = mainProject.title;
+document.getElementById('main-loc').textContent = `${mainProject.location} (${mainProject.year})`;
+mainEl.addEventListener('click', () => openProjectModal(mainProject));
+mainEl.addEventListener('keydown', e => { if (e.key === 'Enter') openProjectModal(mainProject); });
+
 modal.addEventListener('click', e => { if (e.target === modal) closeProjectModal(); });
 addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeProjectModal(); closeDrawer(); }
