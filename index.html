@@ -105,7 +105,7 @@ tailwind.config = { theme: { extend: {
   <div class="reveal mb-10 sm:mb-14 max-w-2xl space-y-3">
     
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-14" id="portfolio-grid"></div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden" id="portfolio-grid"></div>
 </section>
 
 <!-- FOUNDER -->
@@ -178,39 +178,39 @@ tailwind.config = { theme: { extend: {
 <script>
 const projectsData = [
   { title:"Rocket Studio by Harmony Studio", service:"Full Management", filter:"management", category:"Reformer Hall", location:"Sleman, Yogyakarta", year:"2026", area:"xx m²",
-    image:"Rocket 2.jpeg?auto=format&fit=crop&w=1200&q=80",
+    image:"Rocket 2.jpeg?auto=format&fit=crop&w=1200&q=80", images:["Rocket 2.jpeg?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"lorem ipsum dolor", materials:"Light Oak Wood, Cream Microcement, Diffused Skylight Panels, Acoustic Felt Ceiling" },
   { title:"ORO Studio", service:"SOP & Coach Handling", filter:"management", category:"Tropical Sanctuary", location:"Tegal, Jawa Tengah", year:"2026", area:"xx m²",
-    image:"https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80",
+    image:"https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80", images:["https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"Studio Pilates pertama di Tegal.", materials:"Terracotta Tiles, Eco-Bamboo Elements, Lime Wash Walls, Natural Rattan Weave" },
   { title:"Kenwi Studio Boutique", service:"Boutique Studio Design", filter:"design", category:"Boutique Studio", location:"Denpasar, Bali", year:"2025", area:"xx m²",
-    image:"kenwi.jpg?auto=format&fit=crop&w=1200&q=80",
+    image:"kenwi.jpg?auto=format&fit=crop&w=1200&q=80", images:["kenwi.jpg?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Polished Architectural Concrete, Dark Walnut, Frosted Smoked Glass, Warm LED Strips" },
   { title:"Gymrat", service:"Coach Supplier", filter:"coaching", category:"Heritage Loft", location:"Yogyakarta", year:"2025", area:"xx m²",
-    image:"Gymrat.jpg?auto=format&fit=crop&w=1200&q=80",
+    image:"Gymrat.jpg?auto=format&fit=crop&w=1200&q=80", images:["Gymrat.jpg?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Exposed Heritage Red Brick, Black Steel Frame, Birch Plywood, Sound Absorbing Curtains" },
   { title:"Neofit Gym", service:"Coach Management", filter:"coaching", category:"Fitness & Pilates", location:"Solo, Jawa Tengah", year:"2025", area:"xx m²",
-    image:"Neofit.jpg?auto=format&fit=crop&w=1200&q=80",
+    image:"Neofit.jpg?auto=format&fit=crop&w=1200&q=80", images:["Neofit.jpg?auto=format&fit=crop&w=1200&q=80"],
     concept:"lorem ipsum dolor", description:"lorem ipsum dolor.", materials:"Rubber Flooring, Matte Black Steel, Warm Oak Panels, Indirect Lighting" },
   { title:"The Junction Kudus by Harmony", service:"Coming Soon", filter:"design", category:"Monolithic Atelier", location:"Kudus, Jawa Tengah", year:"2026", area:"xx m²", featured:true,
-    image:"TJC Kudus.jpg?auto=format&fit=crop&w=1600&q=80",
+    image:"TJC Kudus.jpg?auto=format&fit=crop&w=1600&q=80", images:["TJC Kudus.jpg?auto=format&fit=crop&w=1600&q=80"],
     concept:"lorem ipsum dolor", description:"Atelier Pilates privat monolitik yang dirancang tanpa sudut tajam. Permukaan lantai dan dinding menyambung mulus.", materials:"Continuous Microcement, Curved Glass Partitions, Brushed Bronze Fixtures, Suede Cushions" }
 ];
 
+const filterIcons = { management:'briefcase', design:'pencil-ruler', coaching:'dumbbell' };
 document.getElementById('portfolio-grid').innerHTML = projectsData.map((p,i)=>`
-  <div class="project-card reveal group cursor-pointer space-y-4 ${p.featured?'md:col-span-2':''}" data-category="${p.filter}" onclick="openProjectModal(${i})" tabindex="0" onkeydown="if(event.key==='Enter')openProjectModal(${i})" style="--d:${(i%2)*.1}s">
-    <div class="img-wrap relative overflow-hidden rounded-2xl ${p.featured?'aspect-[4/3] sm:aspect-[21/9]':'aspect-[4/3]'} bg-linen">
-      <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1200ms] ease-out">
-      <div class="absolute top-3 left-3 sm:top-4 sm:left-4 bg-canvas/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase tracking-wider sm:tracking-widest font-medium border border-stoneBorder">${p.service}</div>
+  <article class="project-card project-panel reveal group relative cursor-pointer overflow-hidden bg-darkBg text-white min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] flex flex-col justify-end" data-category="${p.filter}" onclick="openProjectModal(${i})" tabindex="0" onkeydown="if(event.key==='Enter')openProjectModal(${i})" style="--d:${(i%3)*.1}s">
+    <img src="${p.image}" alt="${p.title}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1400ms] ease-out">
+    <div class="panel-overlay absolute inset-0"></div>
+    <div class="absolute top-8 left-8 sm:top-10 sm:left-10 text-warmBronze"><i data-lucide="${filterIcons[p.filter]||'layers'}" class="w-10 h-10 stroke-[1.25]"></i></div>
+    <div class="relative z-10 p-8 sm:p-10 space-y-3">
+      <span class="block text-sm tracking-[.2em] font-medium text-warmBronze">${String(i+1).padStart(2,'0')}</span>
+      <span class="block text-[11px] uppercase tracking-[.3em] text-white/70 font-light">${p.service}</span>
+      <h3 class="font-serif text-2xl sm:text-[1.7rem] leading-tight font-medium">${p.title}</h3>
+      <p class="text-xs text-white/60 font-light">${p.location} (${p.year})</p>
+      <span class="inline-flex items-center gap-2 pt-3 text-xs uppercase tracking-[.25em] text-warmBronze font-medium">Selengkapnya <i data-lucide="arrow-right" class="w-4 h-4 stroke-[1.5] group-hover:translate-x-2 transition-transform duration-500"></i></span>
     </div>
-    <div class="flex justify-between items-start pt-1">
-      <div>
-        <h3 class="font-serif ${p.featured?'text-2xl sm:text-3xl':'text-xl sm:text-2xl'} font-light group-hover:text-warmBronze transition-colors">${p.title}</h3>
-        <p class="text-xs text-mutedSlate font-light mt-1">${p.location} (${p.year})</p>
-      </div>
-      <span class="w-9 h-9 rounded-full border border-stoneBorder flex items-center justify-center group-hover:bg-charcoal group-hover:text-canvas group-hover:rotate-45 transition-all duration-500 shrink-0"><i data-lucide="arrow-up-right" class="w-4 h-4 stroke-[1.25]"></i></span>
-    </div>
-  </div>`).join('');
+  </article>`).join('');
 
 lucide.createIcons();
 
@@ -240,16 +240,43 @@ drawer.addEventListener('click', e => { if (e.target === drawer) closeDrawer(); 
 document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeDrawer));
 
 /* Modal */
+let slideIdx = 0, slideCount = 1;
+function slideTo(n) {
+  slideIdx = (n + slideCount) % slideCount;
+  const track = document.getElementById('slider-track'); if (!track) return;
+  track.style.transform = `translateX(-${slideIdx*100}%)`;
+  document.querySelectorAll('#slider-dots button').forEach((b,k)=>{ b.style.width = k===slideIdx ? '24px' : '8px'; b.style.background = k===slideIdx ? '#C2A382' : 'rgba(255,255,255,.6)'; });
+  const c = document.getElementById('slider-count'); if (c) c.textContent = `${slideIdx+1} / ${slideCount}`;
+}
+function bindSwipe() {
+  const el = document.getElementById('slider'); if (!el || slideCount < 2) return;
+  let x0 = null;
+  el.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive:true });
+  el.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) slideTo(slideIdx + (dx < 0 ? 1 : -1)); x0 = null; });
+}
 const modal = document.getElementById('project-modal'), modalContent = document.getElementById('modal-content');
 function openProjectModal(i) {
   const d = projectsData[i];
+  const imgs = (d.images && d.images.length) ? d.images : [d.image];
+  slideIdx = 0; slideCount = imgs.length;
   modalContent.innerHTML = `
     <div class="space-y-3 pr-10">
       <span class="text-[10px] uppercase tracking-widest text-warmBronze font-medium px-3 py-1 rounded-full bg-linen border border-stoneBorder inline-block">${d.category}</span>
       <h3 class="font-serif text-2xl sm:text-3xl font-light">${d.title}</h3>
       <p class="text-xs text-taupe font-light">${d.location} — ${d.area} (${d.year})</p>
     </div>
-    <div class="rounded-2xl overflow-hidden aspect-[16/9] bg-linen"><img src="${d.image}" alt="${d.title}" class="w-full h-full object-cover"></div>
+    <div class="relative group/slider rounded-2xl overflow-hidden aspect-[16/9] bg-linen select-none" id="slider">
+      <div id="slider-track" class="flex h-full transition-transform duration-500 ease-out">
+        ${imgs.map((src,k)=>`<img src="${src}" alt="${d.title} - foto ${k+1}" class="w-full h-full object-cover shrink-0" draggable="false">`).join('')}
+      </div>
+      ${imgs.length>1?`
+      <button type="button" onclick="slideTo(slideIdx-1)" aria-label="Sebelumnya" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-charcoal flex items-center justify-center shadow transition"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+      <button type="button" onclick="slideTo(slideIdx+1)" aria-label="Berikutnya" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 hover:bg-white text-charcoal flex items-center justify-center shadow transition"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+      <div class="absolute bottom-3 left-0 right-0 flex justify-center gap-2" id="slider-dots">
+        ${imgs.map((_,k)=>`<button type="button" onclick="slideTo(${k})" aria-label="Foto ${k+1}" class="h-2 rounded-full transition-all duration-300 bg-white/60"></button>`).join('')}
+      </div>
+      <span class="absolute top-3 right-3 bg-black/50 text-white text-[10px] tracking-widest px-3 py-1 rounded-full" id="slider-count"></span>`:''}
+    </div>
     <div class="space-y-3 pt-2">
       <span class="text-xs uppercase tracking-widest text-warmBronze font-medium block">Konsep Utama: ${d.concept}</span>
       <p class="text-xs sm:text-sm text-mutedSlate font-light leading-relaxed">${d.description}</p>
@@ -261,13 +288,17 @@ function openProjectModal(i) {
   modal.classList.remove('opacity-0','pointer-events-none'); modal.classList.add('open');
   document.body.style.overflow = 'hidden';
   lucide.createIcons();
+  slideTo(0); bindSwipe();
 }
 function closeProjectModal() {
   modal.classList.add('opacity-0','pointer-events-none'); modal.classList.remove('open');
   document.body.style.overflow = '';
 }
 modal.addEventListener('click', e => { if (e.target === modal) closeProjectModal(); });
-addEventListener('keydown', e => { if (e.key === 'Escape') { closeProjectModal(); closeDrawer(); } });
+addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeProjectModal(); closeDrawer(); }
+  if (modal.classList.contains('open')) { if (e.key === 'ArrowRight') slideTo(slideIdx+1); if (e.key === 'ArrowLeft') slideTo(slideIdx-1); }
+});
 </script>
 </body>
 </html>
