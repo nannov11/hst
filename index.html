@@ -122,9 +122,9 @@ tailwind.config = { theme: { extend: {
     <!-- Kotak Main Studio Project -->
     <article id="main-project" class="reveal group relative aspect-video rounded-2xl overflow-hidden bg-darkBg cursor-pointer text-white flex flex-col justify-end shadow-[0_30px_60px_-30px_rgba(26,26,26,.5)]" tabindex="0" style="--d:.15s">
       <img id="main-img" alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1400ms] ease-out">
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0e1020]/95 via-[#0e1020]/55 to-[#0e1020]/20 transition-all duration-700 group-hover:via-[#0e1020]/45"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0e1020]/80 via-[#0e1020]/20 to-transparent transition-all duration-700 group-hover:via-[#0e1020]/10"></div>
       <span class="absolute top-5 left-5 sm:top-6 sm:left-6 bg-canvas/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-medium text-charcoal">Main Studio Project</span>
-      <div class="relative z-10 p-6 sm:p-8 space-y-2">
+      <div class="relative z-10 p-6 sm:p-8 space-y-2 [text-shadow:0_1px_12px_rgba(0,0,0,.45)]">
         <span class="block text-[11px] uppercase tracking-[.3em] text-white/70 font-light" id="main-service"></span>
         <h3 class="font-serif text-2xl sm:text-3xl leading-tight font-medium" id="main-title"></h3>
         <p class="text-xs text-white/60 font-light" id="main-loc"></p>
@@ -206,7 +206,7 @@ tailwind.config = { theme: { extend: {
 /* GALERI POP-UP (kolom "gallery" di tiap project):
    - minimal 2 item, isi dengan foto yang BERBEDA dari sampul (image) kalau mau.
    - foto  -> "nama-file.jpg"
-   - video -> { yt:"x_gADDZYaek" }   (contoh youtu.be/abc123XYZ99 -> { yt:"abc123XYZ99" })
+   - video -> { yt:"ID_VIDEO_YOUTUBE" }   (contoh youtu.be/abc123XYZ99 -> { yt:"abc123XYZ99" })
    Saat ini item ke-2 masih sama dengan sampul sebagai placeholder: ganti dengan foto/video aslinya. */
 const projectsData = [
   { title:"Rocket Studio by Harmony Studio", service:"Full Management", filter:"management", category:"Reformer Hall", location:"Sleman, Yogyakarta", year:"2026", area:"xx m²",
@@ -233,9 +233,9 @@ const filterIcons = { management:'briefcase', design:'pencil-ruler', coaching:'d
 document.getElementById('portfolio-grid').innerHTML = projectsData.map((p,i)=>`
   <article class="project-card project-panel reveal group relative cursor-pointer overflow-hidden bg-darkBg text-white min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] flex flex-col justify-end" data-category="${p.filter}" onclick="openProjectModal(${i})" tabindex="0" onkeydown="if(event.key==='Enter')openProjectModal(${i})" style="--d:${(i%3)*.1}s">
     <img src="${p.image}" alt="${p.title}" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1400ms] ease-out">
-    <div class="panel-overlay absolute inset-0 bg-gradient-to-t from-[#0e1020]/95 via-[#0e1020]/65 to-[#0e1020]/35 group-hover:via-[#0e1020]/50 group-hover:to-[#0e1020]/15 transition-all duration-700"></div>
-    <div class="absolute top-8 left-8 sm:top-10 sm:left-10 text-warmBronze"><i data-lucide="${filterIcons[p.filter]||'layers'}" class="w-10 h-10 stroke-[1.25]"></i></div>
-    <div class="relative z-10 p-8 sm:p-10 space-y-3">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0e1020]/80 via-[#0e1020]/20 to-transparent group-hover:from-[#0e1020]/70 group-hover:via-[#0e1020]/10 transition-all duration-700"></div>
+    <div class="absolute top-8 left-8 sm:top-10 sm:left-10 text-warmBronze drop-shadow-[0_1px_6px_rgba(0,0,0,.5)]"><i data-lucide="${filterIcons[p.filter]||'layers'}" class="w-10 h-10 stroke-[1.25]"></i></div>
+    <div class="relative z-10 p-8 sm:p-10 space-y-3 [text-shadow:0_1px_12px_rgba(0,0,0,.45)]">
       <span class="block text-sm tracking-[.2em] font-medium text-warmBronze">${String(i+1).padStart(2,'0')}</span>
       <span class="block text-[11px] uppercase tracking-[.3em] text-white/70 font-light">${p.service}</span>
       <h3 class="font-serif text-2xl sm:text-[1.7rem] leading-tight font-medium">${p.title}</h3>
@@ -345,15 +345,20 @@ function closeProjectModal() {
   document.body.style.overflow = '';
 }
 /* Video YouTube & Main Studio Project */
-const YOUTUBE_ID = 'GANTI_ID_VIDEO'; // contoh: dari https://youtu.be/abc123XYZ99 -> 'abc123XYZ99'
+const YOUTUBE_ID = 'x_gADDZYaek'; // dari https://www.youtube.com/watch?v=x_gADDZYaek
+const YOUTUBE_START = 375;       // detik mulai putar (dari &t=375s). Isi 0 untuk mulai dari awal
 const mainProject = { title:"Main Studio Project", service:"Flagship Studio", category:"Main Studio", location:"Lokasi studio", year:"2026", area:"xx m²",
   image:"Body.jpg", gallery:["Body.jpg", "Body.jpg"],
   concept:"lorem ipsum dolor", description:"lorem ipsum dolor", materials:"lorem ipsum dolor" };
 
-document.getElementById('yt-thumb').src = `https://i.ytimg.com/vi/${YOUTUBE_ID}/hqdefault.jpg`;
-document.getElementById('yt-thumb').addEventListener('error', e => e.target.style.display = 'none');
+const ytThumb = document.getElementById('yt-thumb');
+ytThumb.addEventListener('error', () => {
+  if (!ytThumb.dataset.fb) { ytThumb.dataset.fb = '1'; ytThumb.src = `https://i.ytimg.com/vi/${YOUTUBE_ID}/hqdefault.jpg`; }
+  else ytThumb.style.display = 'none';
+});
+ytThumb.src = `https://i.ytimg.com/vi/${YOUTUBE_ID}/maxresdefault.jpg`;
 document.getElementById('yt-play').addEventListener('click', () => {
-  document.getElementById('yt-box').innerHTML = `<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0" title="Video Harmony Studio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  document.getElementById('yt-box').innerHTML = `<iframe class="absolute inset-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0&start=${YOUTUBE_START}" title="Video Harmony Studio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 });
 
 const mainEl = document.getElementById('main-project');
